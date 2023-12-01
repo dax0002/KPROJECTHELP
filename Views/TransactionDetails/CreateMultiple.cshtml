@@ -1,0 +1,38 @@
+﻿@model FinalProject.Models.TransactionDetail
+
+@{
+    ViewData["Title"] = "CreateMultiple";
+}
+
+<h1>Create Multiple</h1>
+
+<!-- Your form for creating multiple transaction details -->
+<form asp-action="CreateMultiple">
+    <div class="form-group">
+        <label asp-for="Transaction.TransactionID">Transaction</label>
+        <input asp-for="Transaction.TransactionID" class="form-control" readonly />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Seat">Seat</label>
+        <input asp-for="Seat" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="PaymentMethod" class="control-label"></label>
+        <select asp-for="PaymentMethod" asp-items="Html.GetEnumSelectList<PaymentMethod>()" class="form-control">
+            <option selected="selected" value="">Select a Payment Method</option>
+        </select>
+        <span asp-validation-for="PaymentMethod" class="text-danger"></span>
+    </div>
+
+    <!-- Other fields as needed -->
+
+
+    <button type="submit" class="btn btn-primary">Create Multiple</button>
+</form>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
